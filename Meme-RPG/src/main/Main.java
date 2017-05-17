@@ -26,7 +26,10 @@ public class Main extends JFrame{
 //				
 //			}
 		}
-	
+	/**
+	 * Called upon start of the app.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 	new Main();
 
