@@ -17,6 +17,7 @@ import javax.swing.plaf.basic.BasicSplitPaneUI.KeyboardUpLeftHandler;
  *
  */
 public class GameLoop extends JPanel implements Runnable{
+	Character character;
 	ArrayList<Character> playerGroup;
 	ArrayList<Character> aiGroup;
 	public int left, right, up, down;
@@ -92,6 +93,11 @@ public class GameLoop extends JPanel implements Runnable{
  */
 		@Override
 		public void keyReleased(KeyEvent arg0) {
+			switch(arg0.getKeyCode()){
+			case KeyEvent.VK_W:
+				break;
+				
+			}
 			System.out.println(arg0);
 		}
 /**
@@ -112,13 +118,29 @@ public class AI{
 	
 	public AI(){
 		
+		
 	}
 	/**
 	 * Main algorithim to move. This checks in order the different methods to identify the situation. The
 	 * order it does these in determines the priority of the move. 
+	 * @param int direction: use GameLoop.left, 
 	 */
-	public void move(){
+	public void move(int direction){
+		switch(direction){
+		case 0:
+			break;
+		case 1:
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		default:
+			
+			break;
 		
+			
+		}
 	}
 	/**
 	 * Moves away from the enemy
@@ -151,16 +173,44 @@ public class AI{
 		return false;
 		
 	}
-	
+	/**
+	 * Creates characters for each team. Each team should get a certain amount of each character.
+	 */
+	public void createCharacters(){
+		
+		
+	}
 	
 	
 }
+/**
+ * Grid class. Field for game.
+ * @author Miles
+ *
+ */
+public class Grid{
+	
+	int[][] field;
+	/**
+	 * Creates the grid. 
+	 */
+	public Grid(){
+		field = new int[19][19];
+	}
+	
+	public void createTerrain(){
+		
+	}
+}
+
+
 /**
  * Calculates the distance between the character requested.
  * @return
  */
 public int findDistance(Character character){
 	return 0;
+	
 }
 
 /**

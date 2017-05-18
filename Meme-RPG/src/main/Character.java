@@ -6,6 +6,11 @@ package main;
  *
  */
 public class Character {
+Classes type;
+int team;
+public Character(Classes type, int team){
+	this.type = type;
+	this.team = team;
+}
 
-	
 }
