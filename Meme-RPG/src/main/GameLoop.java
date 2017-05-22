@@ -72,15 +72,32 @@ public class GameLoop extends JPanel implements Runnable{
 		}
 	}	
 	
+	public boolean withinRange(Character one, Character two){
+		double distance;
+		if(one.location.getX() == two.location.getX()){
+			distance = Math.abs(one.location.getX() - two.location.getX());
+			if(distance < one.range) return true;
+		}
+		if(one.location.getY() == two.location.getY()){
+			distance = Math.abs(one.location.getY() - two.location.getY());
+			if(distance < one.range) return true;
+		}
 	
+		return false;
+		
+	}
 	
-	
+	public void attack(Character attacker, Character victim, int direction){
+		if(withinRange(attacker, victim)){
+			victim.loseHealth(attacker.damage);
+		}
+	}
 	/**
 	 * Key listener for the game.
 	 * @author Coby
 	 *
 	 */
-	public class Key implements KeyListener{
+	 class Key implements KeyListener{
 		/**
 		 * Called every time a key is pressed in. Holding a key will call this repeatedly.
 		 */
@@ -142,6 +159,7 @@ public class AI{
 			
 		}
 	}
+
 	/**
 	 * Moves away from the enemy
 	 */
@@ -149,7 +167,7 @@ public class AI{
 		
 	}
 
-	public void moveRandom(){
+	public void moveRandom(Character attacker, Character victim){
 		
 	}
 	/**
@@ -161,10 +179,7 @@ public class AI{
 	 * TODO 
 	 * @return
 	 */
-	public boolean withinRange(){
-		return false;
-		
-	}
+	
 	/**
 	 * Checks the health of nearby enemies. Returns the character with the least health.
 	 * @return
@@ -190,15 +205,25 @@ public class AI{
  */
 public class Grid{
 	
-	int[][] field;
+	Tile[][] field;
 	/**
 	 * Creates the grid. 
 	 */
 	public Grid(){
-		field = new int[19][19];
+		field = new Tile[19][19];
 	}
 	
 	public void createTerrain(){
+		Tile tile;
+		for(int i = 0; i < 20; i++){
+			for(int temp = 0; temp < 20; temp++){
+				
+				field[i][temp] = new Tile();
+				tile = field[i][temp];
+				tile.setTerrain((int) Math.random());
+				
+			}
+		}
 		
 	}
 }
