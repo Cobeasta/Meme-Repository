@@ -244,13 +244,5 @@ public int findDistance(Character character){
 public void goTo(){
 	
 }
-/**
- * Attacks an enemy a certain direction.
- */
-public void attack(Character character){
-	
-}
 
-	
-}
 
